@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CadastroProduto</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="login-line">
+  <% if user_signed_in? %>
+    Bem vindo <b><%= current_user.username %></b>!
+    <%= link_to "Logout", destroy_user_session_path, :method => :delete %> | 
+    <%= link_to "Editar conta", edit_user_registration_path %>
+  <% else %>
+    <%= link_to "Registro", new_user_registration_path %> ou <%= link_to "Login", new_user_session_path %>
+  <% end %>
+</div>
+
+<div id="wrapper">
+  <div id="header-wrapper">
+    <div id="header">
+      <div id="logo">
+        <h2><%= link_to 'Central de Produtos', products_path %></h2>
+        <p>Projeto de cadastro de produtos no Rails</p>
+      </div>
+      <div id="menu">
+        <ul>
+          <li><%= link_to 'Produtos', products_path %></li>
+          <li><%= link_to 'Categorias', categories_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- end #header -->
+  <div id="page">
+    <div id="page-bgtop">
+      <div id="page-bgbtm">
+      <%= yield %>
+        <div style="clear: both;"> </div>
+      </div>
+    </div>
+  </div>
+  <!-- end #page -->
+</div>
+
+</body>
+</html>

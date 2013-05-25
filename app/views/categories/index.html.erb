@@ -1,0 +1,23 @@
+<h1>Lista de Categorias</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= link_to 'Visualizar', category %></td>
+    <td><%= link_to 'Editar', edit_category_path(category) %></td>
+    <td><%= link_to 'Excluir', category, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir esta Categoria?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nova Categoria', new_category_path %>
