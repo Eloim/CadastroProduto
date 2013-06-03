@@ -5,6 +5,15 @@
   <%= @category.name %>
 </p>
 
+<table>
+<tr>
+  	<th>Produto</th>
+  	<th>Descrição</th>
+  	<th>Usuário</th>
+  </tr>
+  <%= render @category.products %>
+</table>
+
 
 <%= link_to 'Editar', edit_category_path(@category) %> |
 <%= link_to 'Voltar', categories_path %>

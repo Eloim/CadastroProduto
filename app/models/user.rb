@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
   attr_accessor :login
+
+  validates :username, :presence => true, :uniqueness => true
+  validates :email, :presence => true, :uniqueness => true
+  validates :password, :presence => true
+  validates :password_confirmation, :presence => true
 end

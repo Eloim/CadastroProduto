@@ -1,0 +1,8 @@
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.user.username %></td>
+    <td><%= link_to 'Visualizar', product %></td>
+    <td><%= link_to 'Editar', edit_product_path(product) %></td>
+    <td><%= link_to 'Excluir', product, method: :delete, data: { confirm: 'Você tem certeza que deseja excluir este produto?' } %></td>
+  </tr>
